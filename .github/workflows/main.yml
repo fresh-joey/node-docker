@@ -3,10 +3,6 @@ name: Java CI/CD Pipeline
 on:
   push:
     branches: [ main ]
-    
-env:
-  TEST_TAG: ./code:test
-  LATEST_TAG: ./code:latest
 
 jobs:
   build:
@@ -41,15 +37,13 @@ jobs:
       with:
         context: .
         load: true
-        tags: ${{ env.TEST_TAG }}
-    
+       
     - name: Test
       run: |
-        docker run --rm ${{ env.TEST_TAG }}
+        docker run
     
     - name: Build and push
       uses: docker/build-push-action@v4
       with:
         context: .
         push: true
-        tags: ${{ env.LATEST_TAG }}
