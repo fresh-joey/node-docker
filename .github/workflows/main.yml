@@ -5,8 +5,8 @@ on:
     branches: [ main ]
     
 env:
-  TEST_TAG: /code:test
-  LATEST_TAG: /code:latest
+  TEST_TAG: ./code:test
+  LATEST_TAG: ./code:latest
 
 jobs:
   build:
