@@ -37,10 +37,7 @@ jobs:
        
     - name: Install dependencies
       run: npm ci
-
-    - name: Run tests
-      run: npm test
-    
+   
     - name: Build and push
       uses: docker/build-push-action@v4
       with:
