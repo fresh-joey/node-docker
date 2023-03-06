@@ -38,6 +38,9 @@ jobs:
         context: .
         load: true
         tags: ${{ env.LATEST_TAG }}
+        
+    - name: Test
+      run: docker run -rm ${{ env.LATEST_TAG }}
        
     - name: Install dependencies
       run: npm ci
