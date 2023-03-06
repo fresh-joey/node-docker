@@ -25,3 +25,29 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/clockbox:latest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          - name: Deploy to production
+      uses: appleboy/ssh-action@master
+      with:
+        host: your.server.com
+        username: ${{ secrets.SSH_USERNAME }}
+        password: ${{ secrets.SSH_PASSWORD }}
+        port: 22
+        script: |
+          cd /path/to/your/app
+          git pull
+          mvn clean package
+          sudo systemctl restart your-app.service
