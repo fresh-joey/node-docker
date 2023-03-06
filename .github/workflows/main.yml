@@ -3,6 +3,9 @@ name: Node CI/CD Pipeline
 on:
   push:
     branches: [ main ]
+    
+env:
+  LATEST_TAG: freshjoey/test:latest
 
 jobs:
   build:
@@ -34,7 +37,7 @@ jobs:
       with:
         context: .
         load: true
-        tags: test
+        tags: ${{ env.LATEST_TAG }}
        
     - name: Install dependencies
       run: npm ci
@@ -44,4 +47,4 @@ jobs:
       with:
         context: .
         push: true
-        tags: test
+        tags: ${{ env.LATEST_TAG }}
