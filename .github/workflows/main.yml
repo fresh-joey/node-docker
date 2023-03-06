@@ -40,7 +40,7 @@ jobs:
         tags: ${{ env.LATEST_TAG }}
         
     - name: Test
-      run: docker run -rm ${{ env.LATEST_TAG }}
+      run: docker run --name node-test ${{ env.LATEST_TAG }}
        
     - name: Install dependencies
       run: npm ci
